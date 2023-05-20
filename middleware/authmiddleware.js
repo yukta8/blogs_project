@@ -1,4 +1,6 @@
 const jwt = require('jsonwebtoken');
+const dotenv = require("dotenv");
+dotenv.config();
 
 
 const authenticated = (req, res, next) => {
@@ -6,7 +8,7 @@ const authenticated = (req, res, next) => {
 
     // see if token exists
     if(token){
-        jwt.verify(token, 'net ninja sign', (error,decodedToken) =>{
+        jwt.verify(token, process.env.KEY , (error,decodedToken) =>{
             if(error){
                 console.log(error.message);
                 res.redirect('/login')

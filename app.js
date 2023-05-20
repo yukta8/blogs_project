@@ -11,7 +11,9 @@ app.set('view engine','ejs');
 app.use(express.static('public'));
 app.use(express.json());
 app.use(authRoutes);
-app.use(cookieParser())
+app.use(cookieParser());
+const dotenv = require("dotenv");
+dotenv.config();
 
  
  
@@ -24,7 +26,7 @@ res.render('blogs')
 
 
 
-const DB = 'mongodb+srv://yuktaagarwal8:Yukta1234@cluster0.mpbrcvz.mongodb.net/login_signup_jwt?retryWrites=true&w=majority';
+const DB = process.env.DATABASE;
 
 mongoose.connect(DB)
 .then((result) => {
@@ -33,6 +35,6 @@ mongoose.connect(DB)
 })
 .catch((error) => { 
      console.log(error.message)
-})
+}) 
  
         

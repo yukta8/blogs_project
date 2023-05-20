@@ -1,6 +1,8 @@
 
 const User = require("../models/User");
-const jwt= require('jsonwebtoken')
+const jwt= require('jsonwebtoken');
+const dotenv = require("dotenv");
+dotenv.config();
 
 // handle errors
 const handleErrors = (error) => {
@@ -37,7 +39,7 @@ const handleErrors = (error) => {
 }
 
 const createToken = function(id) {
-  return jwt.sign({id}, 'net ninja sign', {  //options object)
+  return jwt.sign({id}, process.env.KEY , {  //options object)
   })
 }
 

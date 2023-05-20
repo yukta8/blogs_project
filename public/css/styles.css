@@ -1,0 +1,122 @@
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+form input {
+  width: 30vw;
+  height: 5vh;
+  margin: 0.6vh 1vw;
+  text-align: center;
+  border: 3px solid #4e4946;
+  color: rgb(64, 31, 31);
+  /* font-weight: bold; */
+  font-size: 16px;
+}
+p{
+  display: inline-block;
+}
+
+.container{
+  
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  /* height: 175px; */
+  font-size: 60px;
+  padding-top: 5vh;
+}
+.submit {
+  color: rgb(255, 255, 255);
+  background-color: #c9705e;
+  /* font-size: 22px; */
+  margin: 1vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.3rem;
+  font-family: auto;
+  border-radius: 5px;
+  border: none;
+  width: 12vw;
+  height: 5vh;
+  
+}
+body {
+  /* background: url("/image/register_bg.jpg");
+  background-size: cover; */
+  background-color: #f5eafc;
+  /* opacity: 0.5; */
+  
+}
+.submit:hover {
+  cursor: pointer;
+  background-color: rgb(70, 84, 84);
+}
+.signup, .signin{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+.signup p, .signin p {
+  /* margin-right: 5px; */
+  font-size: 20px;
+  font-size: 1.5rem;
+  color: rgb(171, 168, 176);
+}
+.signin a, .signup a{
+  font-size: 20px;
+  color: rgb(77, 100, 150);
+}
+/* .backhome{
+display: flex;
+justify-content: center;
+} */
+.home{
+  height: 1.5rem;
+  width: 5%;
+  position: absolute;
+  top: 2vh;
+  right: 2vw;
+  font-size: 1rem;
+}
+.home a{
+  text-decoration: none;
+}
+
+.animated{
+  position: relative;
+animation: pfolio 2s ease-in infinite normal none;
+}@keyframes pfolio {
+  0% {
+    /* top: -50px;
+    left: 0px; */
+    color: rgb(217, 183, 214);
+  }
+  20% {
+    /* top: 0px;
+    left: -50px; */
+    color: rgb(67, 143, 205);
+  }
+  40% {
+    /* top: 50px;
+    left: 0px; */
+    color: rgb(90, 219, 161);
+  }
+  60% {
+    /* top: 0px;
+    left: 50px; */
+    color: rgb(206, 61, 61);
+  }
+  80% {
+    /* top: -50px;
+    left: 0px; */
+    color: rgb(122, 83, 181);
+  }
+  100%{
+    color: rgb(168, 200, 73);
+  }
+}

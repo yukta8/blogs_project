@@ -1,0 +1,47 @@
+body{
+    background-color: #f5eafc;
+}
+
+.navbar{
+    font-size: 1rem;
+    /* background-color: none; */
+    position: sticky;
+    top: 0px;
+    width: 100vw;
+    font-family: 'Dosis', sans-serif;
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    padding: 0px 0px;
+    align-items: center;
+   
+    /* margin-bottom: 10px; */
+
+}
+.nav{
+    width: 95%;
+    display: flex;
+    justify-content: right;
+}
+.nav button{
+    border-radius: 0.5rem;
+    background-color: rgb(183, 56, 222);
+}
+.nav button a{
+    color: white;
+    padding: 0px 1rem;
+    font-size: 1.5rem;
+    
+}
+
+
+.homePage{
+    display: flex;
+    height: 80vh;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+}
+
+
+

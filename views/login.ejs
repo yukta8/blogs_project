@@ -1,0 +1,63 @@
+<link rel="stylesheet" href="/css/styles.css">
+
+<body>
+  <header>
+    <div class="container">
+<form action="/login">
+  <p class="animated">Login</p>
+  <input type="text" name="email" placeholder = "enter your email" required />
+  <input type="password" name="password" placeholder="enter your password" required />
+  <div class="password error"></div>
+  <button id="Submit" class="submit">login</button>
+  <div class="signin">
+        <p>Don't have an Account?</p>
+        <a href="/signup">Signup</a>
+      
+          
+          </div>
+</form>
+
+</div>
+</header>
+<script>
+  const form = document.querySelector('form');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    // get values
+    const email = form.email.value;
+    const password = form.password.value;
+
+    console.log(email, password);
+  
+
+  try{
+      // signup is the end point we want to make a request to
+      const result = await fetch('/login',{
+        method:'POST',
+        body: JSON.stringify({email,password}),
+        headers: {'Content-Type' : 'application/json'}  //so that it know json is the type of data going to the server
+      })
+      const data = await result.json();
+      console.log(data);
+      if(data.errors) {
+        if (data.errors.email){
+        alert(data.errors.email)
+      }
+      else if (data.errors.password){
+        alert(data.errors.password);
+      }
+    }
+      if (data.user){
+        // redirect
+        location.assign('/blogs')
+      }
+    }
+
+    catch(error){
+        console.log(error)
+    }
+});
+</script>
+</body>

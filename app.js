@@ -16,7 +16,6 @@ const dotenv = require("dotenv");
 dotenv.config();
  
  
-// app.get('/', checkUser, (req,res) => {});
 app.get('/',checkUser, (req, res) =>  
 {res.render('home')} 
 );

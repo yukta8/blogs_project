@@ -6,6 +6,8 @@
 <form action="/signup">
 <p class ="animated">Sign up!</p>
   
+  <input type="text" name="name" placeholder="Enter your name" required />
+  
   <input type="text" name="email" placeholder="Enter an email" required />
   
   <input type="password" name="password" placeholder="Enter a password!" required />
@@ -26,6 +28,7 @@
     e.preventDefault();
 
     // get values
+    const name = form.name.value;
     const email = form.email.value;
     const password = form.password.value;
 
@@ -33,7 +36,7 @@
       // signup is the end point we want to make a request to
       const result = await fetch('/signup',{
         method:'POST',
-        body: JSON.stringify({email,password}),
+        body: JSON.stringify({name,email,password}),
         headers: {'Content-Type' : 'application/json'}  //so that it know json is the type of data going to the server
       })
       const data = await result.json();
@@ -45,15 +48,18 @@
       else if (data.errors.password){
         alert(data.errors.password)
       }
+      else if (data.errors.name){
+        alert(data.errors.name)
+      }
     }
       if (data.user){
         //redirect
-        location.assign('/blogs')
+        location.assign('/')
       }
     }
 
     catch(error){
-
+      console.log(error)
     }
   });
 </script>

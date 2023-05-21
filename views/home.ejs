@@ -17,15 +17,20 @@
     <nav class="navbar">
         
         <div class="nav">
-      
+          <% if (user) { %>
+            <button id="username">Hi <%=user.name %> !</button>
+          <button><a href="/logout">Log out</a></button>
+          <% } else { %>
           <button><a href="/signup">Sign up</a></button>
         <button><a href="/login">Login</a></button>
+        <% } %>
       
     </div>
     </nav>
 </header>
     
 <div class="homePage">HOME PAGE</div>
+<div><a href="/blogs">blogs</a></div>
 
 </div>
 </body>

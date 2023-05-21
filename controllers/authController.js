@@ -7,7 +7,7 @@ dotenv.config();
 // handle errors
 const handleErrors = (error) => {
   console.log(error.message, error.code);
-  let errors = { email: '', password: '' };
+  let errors = { name:'', email: '', password: '' };
 
 //   duplicate email error
   if (error.code === 11000) {
@@ -53,10 +53,10 @@ module.exports.login_get = (req, res) => {
 }
 
 module.exports.signup_post = async (req, res) => {
-  const { email, password } = req.body;
+  const { name ,email, password } = req.body;
 
   try {
-    const user = await User.create({ email, password });
+    const user = await User.create({ name, email, password });
     const token = createToken(user._id);
     res.cookie('jwt',token,{httpOnly : true})
 
@@ -86,4 +86,10 @@ module.exports.login_post = async (req, res) => {
     const errors = handleErrors(error);
     res.status(400).json({errors})
   }
+};
+
+module.exports.logout_get= async (req,res) => {
+  res.cookie('jwt', '', {maxAge:1});
+  res.redirect('/');
 }
+

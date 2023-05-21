@@ -3,7 +3,7 @@ const express=require('express');
 const mongoose = require('mongoose');
 const authRoutes= require('./routes/authRoutes')
 const cookieParser = require('cookie-parser')
-const {authenticated} = require('./middleware/authmiddleware')
+const {authenticated, checkUser} = require('./middleware/authmiddleware')
 const app= express();
 const User = require('./models/User')
 app.set('view engine','ejs');
@@ -14,14 +14,17 @@ app.use(authRoutes);
 app.use(cookieParser());
 const dotenv = require("dotenv");
 dotenv.config();
-
  
  
-app.get('/', (req, res) =>  
+// app.get('/', checkUser, (req,res) => {});
+app.get('/',checkUser, (req, res) =>  
 {res.render('home')} 
 );
 app.get('/blogs', authenticated,(req, res) => 
 res.render('blogs')
+);
+app.get('/new', authenticated,(req, res) => 
+res.render('new')
 );
 
 

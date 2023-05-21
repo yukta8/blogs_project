@@ -42,6 +42,10 @@ body{
     align-items: center;
     font-size: 3rem;
 }
-
+#username{
+    background-color: #f5eafc;
+    box-shadow: none;
+    font-size: 1.5rem;
+}
 
 

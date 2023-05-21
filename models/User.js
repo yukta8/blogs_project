@@ -4,6 +4,10 @@ const bcrypt=require('bcrypt')
 const alert = require('alert')
 
 const userSchema= new mongoose.Schema({
+    name:{
+        type:'String',
+        required:[true, 'Please enter your name!'],
+    },
     email:{
         type:'String',
         required:[true, 'Please enter an email!'],
@@ -48,7 +52,7 @@ userSchema.statics.login = async function(email , password){
         else{
             throw Error('Incorrect password!');
         }
-    }
+    } 
     else{
         throw Error('Incorrect email!');
     }

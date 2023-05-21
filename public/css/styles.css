@@ -120,3 +120,7 @@ animation: pfolio 2s ease-in infinite normal none;
     color: rgb(168, 200, 73);
   }
 }
+
+#username{
+  background-color: #f5eafc;
+}
